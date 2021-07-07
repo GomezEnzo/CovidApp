@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CovidApp</title>
+</head>
+<body>
+    <h1>Bienvenido a CovidApp</h1>
+    
+
+    <h5>Data</h5>
+    <form action="{% url 'saveInfo' %}", method='post'>
+        {% csrf_token %}
+        <h3>Seleccionar pais</h3>
+        <select name="country" id="countrySelect">
+            <option value="country">Select country</option>
+        </select><br>
+        <h3>O rastrear tu pais: </h3><button id=rastrear>Rastrear</button><br>
+        <input id="nuevos" name='nuevos' readonly>Casos nuevos</input><br>
+        <input id="activos" name="activos" readonly>Casos activos</input><br>
+        <input id="criticos" name="criticos" readonly>Casos criticos</input><br>
+        <input id="recuperados" name="recuperados" readonly>Casos recuperadas</input><br>
+        <input id="total" name="total" readonly>Casos totales</input><br>
+
+        <button type="submit">Save</button>
+    </form>
+    <script src='{% static "scripts.js" %}'></script>
+</body>
+</html>
